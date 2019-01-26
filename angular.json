@@ -1,0 +1,43 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ngx-rest-client": {
+      "root": "projects/ngx-rest-client",
+      "sourceRoot": "projects/ngx-rest-client/src",
+      "projectType": "library",
+      "prefix": "rest-client",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-rest-client/tsconfig.lib.json",
+            "project": "projects/ngx-rest-client/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-rest-client/src/test.ts",
+            "tsConfig": "projects/ngx-rest-client/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-rest-client/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-rest-client/tsconfig.lib.json",
+              "projects/ngx-rest-client/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-rest-client"
+}
