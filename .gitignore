@@ -1,0 +1,10 @@
+# Node.js related paths
+/node_modules
+
+# IDE related paths
+/.idea/
+/.vscode/
+*.sublime-workspace
+
+# Distribution output
+/dist
