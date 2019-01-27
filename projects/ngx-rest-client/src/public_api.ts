@@ -2,6 +2,6 @@
  * Public API Surface of ngx-rest-client
  */
 
-export * from './lib/ngx-rest-client.service';
-export * from './lib/ngx-rest-client.component';
-export * from './lib/ngx-rest-client.module';
+export * from './lib/rest-client.module';
+export * from './lib/services/api-auth.service';
+export * from './lib/services/api-client.service';
