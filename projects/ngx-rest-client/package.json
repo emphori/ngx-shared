@@ -1,8 +1,14 @@
 {
   "name": "@emphori/ngx-rest-client",
-  "version": "0.0.1",
+  "version": "0.0.3",
+  "scripts": {
+    "build": "npm run build:ngx-rest-client --prefix ../../",
+    "test": "npm run test:ngx-rest-client --prefix ../../",
+    "lint": "npm run lint:ngx-rest-client --prefix ../../"
+  },
   "peerDependencies": {
     "@angular/common": "^7.2.0",
-    "@angular/core": "^7.2.0"
+    "@angular/core": "^7.2.0",
+    "rxjs": "~6.3.3"
   }
 }
