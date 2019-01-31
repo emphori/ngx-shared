@@ -4,14 +4,16 @@
   "scripts": {
     "build": "npm run build:ngx-rest-client --prefix ../../",
     "test": "npm run test:ngx-rest-client --prefix ../../",
-    "lint": "npm run lint:ngx-rest-client --prefix ../../"
-  },
-  "config": {
-    "tag-version-prefix": "ngx-rest-client-v"
+    "lint": "npm run lint:ngx-rest-client --prefix ../../",
+    "preversion": "git diff-index --quiet HEAD",
+    "postversion": "git commit -am \"Bump ngx-rest-client to $npm_package_version\" && git tag ngx-rest-client@$npm_package_version && git push && git push --tags"
   },
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0",
     "rxjs": "~6.3.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
