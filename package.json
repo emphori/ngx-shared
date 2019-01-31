@@ -8,7 +8,7 @@
     "test:ngx-rest-client": "ng test ngx-rest-client",
     "lint": "ng lint",
     "lint:ngx-rest-client": "ng lint ngx-rest-client",
-    "version": "echo \"Root project is version locked\""
+    "preversion": "echo \"Root project is version locked\"; exit 1"
   },
   "private": true,
   "dependencies": {
