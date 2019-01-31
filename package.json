@@ -2,12 +2,13 @@
   "name": "ngx-shared",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
     "build": "ng build",
+    "build:ngx-rest-client": "ng build ngx-rest-client",
     "test": "ng test",
+    "test:ngx-rest-client": "ng test ngx-rest-client",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "lint:ngx-rest-client": "ng lint ngx-rest-client",
+    "version": "echo \"Root project is version locked\""
   },
   "private": true,
   "dependencies": {
