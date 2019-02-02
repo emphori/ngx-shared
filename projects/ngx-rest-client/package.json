@@ -8,6 +8,10 @@
     "preversion": "git diff-index --quiet HEAD",
     "postversion": "git commit -am \"Bump ngx-rest-client to $npm_package_version\" && git tag ngx-rest-client@$npm_package_version && git push && git push --tags"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Emphori/ngx-shared/tree/master/projects/ngx-rest-client"
+  },
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0",
