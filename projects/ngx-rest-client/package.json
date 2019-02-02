@@ -1,6 +1,6 @@
 {
   "name": "@emphori/ngx-rest-client",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "build": "npm run build:ngx-rest-client --prefix ../../",
     "test": "npm run test:ngx-rest-client --prefix ../../",
