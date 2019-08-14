@@ -1,7 +1,12 @@
-Ngx Shared
----
+<h1 align="center">Ngx Shared</h1>
 
-Shared Angular libraries used in public and private Emphori projects
+<p align="center">
+  <a href="https://travis-ci.org/Emphori/ngx-shared">
+    <img src="https://img.shields.io/travis/Emphori/ngx-shared/master.svg?style=flat-square" />
+  </a>
+  <a href="https://lgtm.com/projects/g/Emphori/ngx-shared">
+    <img src="https://img.shields.io/lgtm/grade/typescript/github/Emphori/ngx-shared.svg?style=flat-square" />
+  </a>
 
-![](https://img.shields.io/depfu/Emphori/ngx-shared.svg?style=flat-square)
-![](https://img.shields.io/travis/Emphori/ngx-shared.svg?style=flat-square)
+  <img src="https://img.shields.io/depfu/Emphori/ngx-shared.svg?style=flat-square" />
+</p>
