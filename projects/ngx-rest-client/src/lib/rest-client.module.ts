@@ -6,7 +6,7 @@ import { ApiClientService } from './services/api-client.service';
 @NgModule({
   providers: [
     ApiAuthService,
-    ApiClientService
-  ]
+    ApiClientService,
+  ],
 })
 export class RestClientModule { }

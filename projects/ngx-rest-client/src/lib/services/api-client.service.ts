@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, Inject } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { tap, mapTo, merge, share, take, publishLast } from 'rxjs/operators';
+import { mapTo, merge, publishLast, share, take, tap } from 'rxjs/operators';
 
 interface ApiClientConfig {
   host: string;
@@ -20,7 +20,7 @@ export class ApiClientService<T = {}> {
 
   constructor(
     @Inject('ApiClientConfig') public config: ApiClientConfig,
-    public http: HttpClient
+    public http: HttpClient,
   ) {}
 
   @memoizeApiCall
@@ -80,7 +80,7 @@ export class ApiClientService<T = {}> {
         }
       }),
       share(),
-      merge(subject)
+      merge(subject),
     );
   }
 
@@ -95,7 +95,7 @@ export class ApiClientService<T = {}> {
 
         refSpace.items.set(doc[refId], [[subject, observable.pipe(publishLast())]]);
       }),
-      merge(subject)
+      merge(subject),
     );
   }
 

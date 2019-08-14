@@ -5,8 +5,8 @@ import { ApiAuthService } from './api-auth.service';
 describe('ApiAuthService', () => {
   beforeEach(() => TestBed.configureTestingModule({
     providers: [
-      ApiAuthService
-    ]
+      ApiAuthService,
+    ],
   }));
 
   it('should be created', () => {

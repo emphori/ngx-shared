@@ -1,7 +1,7 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { ApiAuthService } from '../services/api-auth.service';
@@ -10,7 +10,7 @@ import { ApiAuthService } from '../services/api-auth.service';
 export class ApiAuthInterceptor implements HttpInterceptor {
   constructor(
     private apiAuth: ApiAuthService,
-    private router: Router
+    private router: Router,
   ) {}
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -23,7 +23,7 @@ export class ApiAuthInterceptor implements HttpInterceptor {
         if (response instanceof HttpErrorResponse && response.status === 401) {
           this.router.navigate(['/login']);
         }
-        return Observable.throw(response);
+        return throwError(response);
       }));
   }
 }

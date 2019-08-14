@@ -1,5 +1,5 @@
-import { TestBed } from '@angular/core/testing';
 import { HttpClient, HttpHandler } from '@angular/common/http';
+import { TestBed } from '@angular/core/testing';
 
 import { ApiClientService } from './api-client.service';
 
@@ -8,12 +8,12 @@ describe('ApiClientService', () => {
     providers: [
       {
         provide: 'ApiClientConfig',
-        useValue: { host: 'localhost' }
+        useValue: { host: 'localhost' },
       },
       ApiClientService,
       HttpClient,
-      HttpHandler
-    ]
+      HttpHandler,
+    ],
   }));
 
   it('should be created', () => {
