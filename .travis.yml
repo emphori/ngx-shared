@@ -6,13 +6,27 @@ node_js:
 script:
   - npm run build
 
-before_deploy: "cd dist/${TRAVIS_TAG//@[0-9].[0-9].[0-9]}"
+before_deploy:
+  - "cd dist/${TRAVIS_TAG//@[0-9].[0-9].[0-9]}"
+  - "echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc"
+  - "echo '//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}' > .npmrc"
 
 deploy:
-  provider: npm
-  skip_cleanup: true
-  email: $NPM_EMAIL
-  api_key: $NPM_AUTH_TOKEN
-  on:
-    branch: master
-    tags: true
+  # Publish to https://registry.npmjs.org/
+  - provider: script
+    script: "npm publish --registry=https://registry.npmjs.org/"
+    skip_cleanup: true
+    on:
+      branch: master
+      tags: true
+
+  # Publish to https://npm.pkg.github.com/
+  - provider: script
+    script: "npm publish --registry=https://npm.pkg.github.com/"
+    skip_cleanup: true
+    on:
+      branch: master
+      tags: true
+
+env:
+  - secure: OdCGGRXcHDkLyL2VKYRj3yOVFrqCuAy9Bx5Tsto0kT3ArXH04JwdsxjysPJgXTJN2mONCX6n1Wj7WnK/HSHEPF+BgalI8yOXEuprouaDlz3cmMgFRIdo/bZ90Y8FSIDfJggkjgeyL5Cox0ReIAO70xIBDg53VklPV9Cwczhy01f/bmmuch4qHPUGLU5SxAbaqrUZtddad3qv8Uk0NaeWgMDPnnMAFbOEzGeyBwuP+QeO2r2U/482yEZdUebQWaXxf2mN7odoZ0elZLGBYDOUTz/Z0DUsuSzZEZr6Q0AKiOflsf9pGizCVAhxxDprREGV4G2sjNnmWYoy9tNC8J6Q1B/WRdZ+bAqQhrcmlCKa7GcVdQLquA/C5Jmbu8rpLkZK5UtOkPdZYD5wL1e4sg56+pUKd+KLay7qhaUl/ENP6opU0FcST6o7UtqednSbv+rOHeD82cFMqaxm14I9MiE0rz+HKosYIC+GztQCg1/oVBUyJPQ4pAgyQ6twFrbzg+/+600BcuD0DI4N+6yi3W7BqN4VhltMbipkfoAHSxZ7kzlzqeMxydYgwcrRFbU+rQRd+P4nuXSVyuTC+N8MFwjgaZgpDQnpl8ifCEAoCwxJq1bSBmuiYXY2CE79G9GTsjlrkeQIXb6jCi+9zq4ooEtCt9ZOvOMs9zEIqzPrlvfwgEQ=
